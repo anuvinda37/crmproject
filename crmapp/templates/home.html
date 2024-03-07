@@ -3,64 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Website</title>
+    <title>Studious Website</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
+        body, html {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            height: 100%;
         }
-        .header {
-            background-color: #fff;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+
         .navbar {
-            overflow: hidden;
-            background-color: #fff;
+            background-color: #fff; /* Background color for the navbar */
+            overflow: hidden; /* Clear floats */
         }
-        .navbar a {
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
             float: left;
+        }
+
+        .navbar li a {
             display: block;
             color: #333;
             text-align: center;
-            padding: 14px 20px;
+            padding: 14px 16px;
             text-decoration: none;
         }
-        .navbar a:hover {
+
+        .navbar li a:hover {
             background-color: #ddd;
-            color: #333;
+            color: black;
         }
-        .navbar a.active {
-            background-color: #ddd;
-            color: #333;
+
+        .background-image {
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdlZGRpbmd8ZW58MHx8MHx8fDA%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 500px;
+            width: 100%;
+            position: fixed;
+            z-index: -1;
         }
-        .header img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
+
+        .content {
+            padding: 20px;
+            margin: 50px;
+            background-color: rgba(255, 255, 255, 0.027);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+            font-size: 24px;
+           
+        }
+        /* Styling for the footer */
+        footer {
+            background-color: #464324;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-<div class="header">
     <div class="navbar">
-        <a class="active" href="#home">Home</a>
-        <a  href="#home">Dashboard</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="background-image"></div> <!-- Removed <img> tag -->
+    <div class="content">
+        <h1 style="text-align: center;">Welcome to Studious Events</h1>
+        <p class="welcome-message" style="text-align: center;">Creating unforgettable experiences for your special occasions</p>
     </div>
 
-    <img src="https://img.freepik.com/free-vector/isometric-crm-illustration_52683-83950.jpg?w=740&t=st=1709712676~exp=1709713276~hmac=2adc9154bc94e9734cb9677ca75c047decdead18a2efd1b7108e0a56f5c93d89" alt="CRM Image">
-    <h1>CRM Website</h1>
-</div>
 
 
 
-<div style="padding:20px;margin-top:30px;background-color:#f2f2f2;text-align:center;">
 
-</div>
 
+
+
+    <footer>
+        <p>&copy; 2024 Event Planning Co. All rights reserved.</p>
+      </footer>
+    <script src="script.js"></script>
 </body>
+
+<script>
+    // Example: Move content on scroll
+window.addEventListener('scroll', function() {
+    const content = document.querySelector('.content');
+    const scrollAmount = window.scrollY;
+
+    content.style.transform = `translateY(${scrollAmount}px)`;
+});
+
+</script>
 </html>

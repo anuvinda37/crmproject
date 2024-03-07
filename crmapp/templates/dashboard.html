@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Sidebar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #C0BAB3;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+          }
+          .card-deck {
+            margin-top: 20px;
+        }
+      
+        .card {
+            background-color: #363062;;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+      
+        .card-title {
+            color: #F5F5F5;
+        }
+      
+        .card-text {
+            color: #F5F5F5;
+        }
+      
+        .btn-primary {
+            background-color: #F99417;
+            border: none;
+        }
+      
+        .btn-primary:hover {
+            background-color: #363062;
+        }
+
+
+
+
+		.sidebar {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #7A603C;
+			overflow-x: hidden;
+			padding-top: 60px;
+			transition: 0.5s;
+		}
+
+		.sidebar a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #F5F5F5;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.sidebar a:hover {
+			color: #f1f1f1;
+		}
+
+		.sidebar .closebtn {
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
+		}
+
+		.openbtn {
+			font-size: 20px;
+			cursor: pointer;
+			background-color: #464324;
+			color: white;
+			padding: 10px 15px;
+			border: none;
+		}
+
+		.openbtn:hover {
+			background-color: #0b1302;
+		}
+
+		#main {
+			transition: margin-left .5s;
+			padding: 20px;
+			margin-left: 250px; /* Set initial margin-left */
+		}
+
+		@media screen and (max-height: 450px) {
+			.sidebar {
+				padding-top: 15px;
+			}
+
+			.sidebar a {
+				font-size: 18px;
+			}
+		}
+
+        #box {
+            margin: auto;
+            width: 50%;
+            height: 200px;
+            border: 3px solid green;
+            padding: 10px;
+        }
+ 
+        #box1,
+        #box2,
+        #box3 {
+            float: left;
+            margin: 5px;
+            padding: 10px;
+        }
+ 
+        #box1 {
+            width: 50px;
+            height: 50px;
+            background-color: #F5B5C5;
+        }
+ 
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: #B5D5F5;
+        }
+ 
+        #box3 {
+            width: 150px;
+            height: 150px;
+            background-color: #BEA7CC;
+        }
+ 
+	</style>
+</head>
+<body>
+	<div class="sidebar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+		<a class="active" href="#home">Home</a>
+		<a href="">Events</a>
+        <a href="">Tasks/Checklist</a>
+        <a href="">Vendors/Suppliers</a>
+        <a href="">Budget</a>
+    
+        <a href="">Reports/Analytics</a>
+       
+        <!-- Handle the case where project_assignment is None -->
+       
+
+       <a href="">Logout</a>
+	</div>
+	<div id="main">
+		<div class="ope"><button class="openbtn" onclick="openNav()">☰ Open Sidebar</button></div>
+		
+  <br>
+  <!-- Admin Dashboard Cards -->
+  <div id="box">
+    <div id="box1" draggable="true"
+         ondragstart="dragStart(event)">
+    </div>
+    <div id="box2" draggable="true"
+         ondragstart="dragStart(event)">
+    </div>
+    <div id="box3" ondrop="dragDrop(event)"
+         ondragover="allowDrop(event)">
+    </div>
+</div>
+    
+	</div>
+	<script>
+		// Automatically open the sidebar when the page loads
+        window.onload = function () {
+            openNav();
+        };
+		function openNav() {
+            document.querySelector(".sidebar").style.width = "250px";
+            document.querySelector("#main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+            document.querySelector(".sidebar").style.width = "0";
+            document.querySelector("#main").style.marginLeft = "0";
+        }
+
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+ 
+        function dragStart(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+ 
+        function dragDrop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive</title>
+    <style>
+        /* Style for archived boxes */
+        .archived-box {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Display archived boxes here -->
+    <div id="archive-container"></div>
+
+    <script>
+        // Retrieve archived box information from localStorage
+        let storedBoxes = localStorage.getItem('archivedBoxes') ? JSON.parse(localStorage.getItem('archivedBoxes')) : [];
+
+        // Display archived boxes
+        let archiveContainer = document.getElementById('archive-container');
+        storedBoxes.forEach(boxId => {
+            let archivedBox = document.createElement('div');
+            archivedBox.className = 'archived-box'; // Add class for styling
+            archivedBox.style.backgroundColor = getBoxColor(boxId); // Set background color based on boxId
+            archiveContainer.appendChild(archivedBox);
+        });
+
+        
+
+        // Function to get box color based on boxId
+        function getBoxColor(boxId) {
+            switch (boxId) {
+                case 'box1':
+                    return '#F5B5C5'; // Pink
+                case 'box2':
+                    return '#B5D5F5'; // Blue
+                case 'box3':
+                    return '#BEA7CC'; // Purple
+                default:
+                    return '#FFFFFF'; // Default color (white)
+            }
+        }
+    </script>
+
+</body>
+</html>

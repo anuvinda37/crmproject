@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Sidebar</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: #C0BAB3;
-            color: #ffffff;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #ECEFF1; /* Light blue-grey background */
+            color: #333;
             margin: 0;
             padding: 0;
         }
@@ -25,50 +40,52 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #7A603C;
+            background-color: #091144; /* Deep blue */
             overflow-x: hidden;
             padding-top: 60px;
             transition: 0.5s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
         }
 
         .sidebar a {
-            padding: 8px 8px 8px 32px;
+            padding: 12px 16px;
             text-decoration: none;
-            font-size: 25px;
-            color: #F5F5F5;
+            font-size: 20px;
+            color: #FFF;
             display: block;
             transition: 0.3s;
         }
 
         .sidebar a:hover {
-            color: #f1f1f1;
+            background-color: #5C6BC0; /* Darker blue on hover */
         }
 
         .sidebar .closebtn {
             position: absolute;
             top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
+            right: 10px; /* Adjusted position */
+            font-size: 30px;
         }
 
         .openbtn {
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
-            background-color: #464324;
+            background-color: #091144; /* Deep blue */
             color: white;
             padding: 10px 15px;
             border: none;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Button shadow */
         }
 
         .openbtn:hover {
-            background-color: #0b1302;
+            background-color: #5C6BC0; /* Darker blue on hover */
         }
 
         #main {
             transition: margin-left .5s;
             padding: 20px;
-            margin-left: 250px; /* Set initial margin-left */
+            margin-left: 0; /* Initially set to 0 */
         }
 
         @media screen and (max-height: 450px) {
@@ -77,70 +94,362 @@
             }
 
             .sidebar a {
-                font-size: 18px;
+                font-size: 16px; /* Smaller font size on smaller screens */
             }
         }
 
-        #box {
-            margin: auto;
-            width: 50%;
-            height: 200px;
-            border: 3px solid green;
-            padding: 10px;
+
+         /* Additional Styling */
+         .content {
+            padding: 20px;
         }
 
-        #box1,
-        #box2,
-        #box3 {
-            float: left;
-            margin: 5px;
-            padding: 10px;
+        .sidebar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            color: #FFF;
+            text-align: center;
+            border-bottom: 1px solid #5C6BC0; /* Darker blue */
+            margin-bottom: 20px;
         }
 
-        #box1 {
-            width: 50px;
-            height: 50px;
-            background-color: #F5B5C5;
+        .sidebar-heading {
+            font-size: 16px;
+            color: #DDD;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #5C6BC0; /* Darker blue */
+            margin-bottom: 10px;
         }
 
-        #box2 {
-            width: 100px;
-            height: 100px;
-            background-color: #B5D5F5;
+        .sidebar-menu {
+            margin-top: 20px;
         }
 
-        #box3 {
-            width: 150px;
-            height: 150px;
-            background-color: #BEA7CC;
+        .sidebar-menu a {
+            color: #FFF;
         }
+
+        .sidebar-menu a:hover {
+            background-color: #5C6BC0;
+        }
+
 
        
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #091144;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #5C6BC0;
+        }
+        .cta-btn {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #5C6BC0; /* Darker blue on hover */
+    color: #fff; /* Text color on hover */
+}
+
+
+        @keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* New styles for the image */
+.scroll-down-image {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .scroll-down-image.show {
+            opacity: 1;
+        }
+         /* Additional Styling */
+         .content {
+            padding: 20px;
+        }
+
+        .booking-section {
+            background-color: #9c5b5b;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .booking-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .booking-option input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .booking-option label {
+            font-size: 18px;
+        }
+
+
+        .card-container {
+        perspective: 1000px;
+        }
+
+        .card {
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            border-color: black;
+            border-radius: 10px;
+        }
+
+        .card-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card .side {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .front {
+            transform: rotateY(0deg); /* Ensure the front side is visible initially */
+            display: flex;
+        }
+
+        .card .back {
+            transform: rotateY(180deg);
+            display: none; /* Hide the back content initially */
+        }
+
+        .popup {
+          display: none;
+          position: fixed;
+          top: 75%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          z-index: 9999;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .booking-section {
+            background-color: #fff; /* Changed background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px; /* Added margin to cards for spacing */
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Additional Styling for Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increased box shadow */
+            z-index: 9999;
+        }
+
+        .popup-content {
+            text-align: center;
+            color: #fff; /* Changed text color */
+        }
+
+        /* Animation Effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="active" href="#home">Home</a>
-        <a href="{% url 'archive' %}" id="archive-link">Archive</a> <!-- Added an ID for the archive link -->
-        <a href="">Tasks/Checklist</a>
-        <a href="">Vendors/Suppliers</a>
-        <a href="">Budget</a>
-        <a href="">Reports/Analytics</a>
-        <a href="">Logout</a>
+        <div class="sidebar-brand">Your Brand</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-heading">Menu</div>
+        <div class="sidebar-menu">
+            <a class="active" href="#home">Home</a>
+            <a href="{% url 'archive' %}" id="archive-link">Archive</a>
+            <a href="{% url 'page1' %}">Tasks/Checklist</a>
+            <a href="{% url 'page2' %}">Vendors/Suppliers</a>
+            <a href="">Budget</a>
+            <a href="">Reports/Analytics</a>
+            <a href="">Logout</a>
+        </div>
     </div>
     <div id="main">
-        <div class="ope"><button class="openbtn" onclick="openNav()">☰ Open Sidebar</button></div>
-        <br>
-        <div id="box">
-            <div id="box1" draggable="true" ondragstart="dragStart(event)">
-            </div>
-            <div id="box2" draggable="true" ondragstart="dragStart(event)">
-            </div>
-            <div id="box3" ondrop="dragDrop(event)" ondragover="allowDrop(event)">
+        <div class="openbtn" onclick="openNav()">&#9776; Open Sidebar</div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZXZlbnQlMjBwbGFubmluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Image" style="max-width: 100%; border-radius: 10px; animation: fadeInLeft 1s ease;">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-start" style="opacity: 0; animation: fadeInRight 1s ease forwards;">
+                    <h1 style="font-size: 32px; font-weight: bold; color: #091144;">DESIGN AND EVENT</h1>
+                    <h2 style="font-size: 24px; color: #333;">Planning Expert</h2>
+                    <h3 style="font-size: 20px; color: #888;">LUX STUDIO</h3>
+                    <p style="font-size: 18px; color: #555; margin-top: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum magna vitae eros feugiat, id finibus est lobortis. Nulla facilisi. Integer ut libero nec mauris mattis eleifend. Proin efficitur magna id sem fermentum, nec ultricies lorem hendrerit. Duis vestibulum purus ac diam posuere ultricies.</p>
+                    <a href="#" class="cta-btn mt-3" style="font-size: 18px; text-decoration: none;">Learn More</a>
+                </div>
             </div>
         </div>
-        <div id="archive-container"></div> <!-- Container for archived boxes -->
+        
+        
+        <!-- Booking section -->
+        <div class="booking-section">
+            <div class="container mt-3 mb-3 pt-1">
+                <h1 class="text-center mt-3 mb-3 display-4"><u><b>Booking section</b></u></h1>
+                <div class="row">
+                  
+                  {% if '1' not in item_idf %}
+                  <div class="col-sm-3 mb-3">
+                    <div id="draggable1" class="card" draggable="true" >
+                      <div class="side front" >
+                      <div class="card-body">
+                        <h5 class="text-center">Wedding</h5>
+                        
+                        <h6 class="text-center">Price : ₹50000</h6>
+                        <h6 class="text-center">Drag and Drop in Archive</h6>
+                        <div class="text-center">
+                          <button class="btn btn-primary" onclick="flipCard('draggable1')">View</button>
+                        </div>
+                      </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                  {% endif %}
+                  
+          
+          
+                  {% if '2' not in item_idf %}
+                  <div class="col-sm-3 mb-3">
+                    <div id="draggable2" class="card" draggable="true" >
+                      <div class="side front">
+                      <div class="card-body">
+                        <h5 class="text-center">Private Dinner</h5>
+                        <h6 class="text-center">Price : ₹6000</h6>
+                        <h6 class="text-center">Drag and Drop in Archive</h6>
+                        <div class="text-center">
+                          <button class="btn btn-primary" onclick="flipCard('draggable2')">View</button>
+                        </div>
+                      </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+          
+                  {% if '3' not in item_idf %}
+                  <div class="col-sm-3 mb-3">
+                    <div id="draggable3" class="card" draggable="true">
+                      <div class="side front">
+                      <div class="card-body">
+                        <h5 class="text-center">Proposal</h5>
+                        <h6 class="text-center">Price : ₹7000</h6>
+                        <h6 class="text-center">Drag and Drop in Archive</h6>
+                        <div class="text-center">
+                          <button class="btn btn-primary" onclick="flipCard('draggable3')">View</button>
+                        </div>
+                      </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+          
+          
+                  {% if '4' not in item_idf %}
+                <div class="col-sm-3 mb-3">
+                  <div id="draggable4" class="card" draggable="true">
+                    <div class="side front">
+                    <div class="card-body">
+                      <h5 class="text-center">Party</h5>
+                      <h6 class="text-center">Price : ₹8000</h6>
+                      <h6 class="text-center">Drag and Drop in Archive</h6>
+                      <div class="text-center">
+                        <button class="btn btn-primary" onclick="flipCard('draggable4')">View</button>
+                      </div>
+                    </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                {% endif %} 
+                </div>
+              </div>
+             <!-- Add a pop-up element -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <img src="data:image/png;base64,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" class="img-fluid">
+        </div>
+      </div>
+            
+        </div>
+        
+        <!-- Scroll down image -->
+        <img src="https://via.placeholder.com/150" alt="Scroll Down" class="scroll-down-image" onclick="scrollToContent()">
     </div>
     <script>
         window.onload = function () {
@@ -157,27 +466,146 @@
             document.querySelector("#main").style.marginLeft = "0";
         }
 
-        function allowDrop(ev) {
-            ev.preventDefault();
+        function scrollToContent() {
+            document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function dragStart(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
+
+
+
+        function flipCard(cardId) {
+        var card = document.getElementById(cardId);
+        card.classList.toggle('card-flipped');
+        
+        var frontSide = card.querySelector('.front');
+        var backSide = card.querySelector('.back');
+        
+        // Toggle display of front and back sides
+        if (card.classList.contains('card-flipped')) {
+            frontSide.style.display = 'none';
+            backSide.style.display = 'flex';
+        } else {
+            frontSide.style.display = 'flex';
+            backSide.style.display = 'none';
         }
-
-		function dragDrop(ev) {
-        ev.preventDefault();
-        let data = ev.dataTransfer.getData("text");
-        let draggedElement = document.getElementById(data);
-        ev.target.appendChild(draggedElement.cloneNode(true));
-
-        // Store the dropped box information in localStorage
-        let storedBoxes = localStorage.getItem('archivedBoxes') ? JSON.parse(localStorage.getItem('archivedBoxes')) : [];
-        storedBoxes.push(data);
-        localStorage.setItem('archivedBoxes', JSON.stringify(storedBoxes));
     }
 
+
+
+
+
+
+    document.querySelectorAll('.card').forEach(card => {
+              card.addEventListener('dragstart', function(e) {
+                  e.dataTransfer.setData('text/plain', card.id);
+                  document.getElementById('popup').style.display = "block"; // Show the popup
+              });
+          });
+      
+          document.getElementById('popup').addEventListener('dragover', function(e) {
+              e.preventDefault();
+          });
+      
+          document.getElementById('popup').addEventListener('drop', function(e) {
+              e.preventDefault();
+              document.getElementById('popup').style.display = "none"; // Hide the popup
+              var data = e.dataTransfer.getData('text/plain');
+              if (data) {
+                  var card = document.getElementById(data);
+                  card.parentNode.removeChild(card); // Remove the dropped card from the page
+              }
+          });
+      
+          document.addEventListener('dragover', function(e) {
+              e.preventDefault();
+          });
+          
+          document.addEventListener('drop', function(e) {
+              e.preventDefault();
+              document.getElementById('popup').style.display = "none"; // Hide the popup
+          });
+
+
+
+
+
+          // Function to retrieve card IDs from the first page and redirect to the second page with item_ids
+          function redirectToSecondPage() {
+              var cardIds = [];
+              document.querySelectorAll('.card').forEach(card => {
+                  var cardId = card.id.replace('draggable', '');
+                  cardIds.push(cardId);
+              });
+              var linkToSecondPage = '{% url "page2" %}?item_ids=' + cardIds.join(',');
+              window.location.href = linkToSecondPage; // Redirect to the second page with card IDs
+          }
+
+
+
+          document.addEventListener("DOMContentLoaded", function() {
+            const enquiryBox = document.getElementById("enquiry-box");
+            const enquiryLink = document.getElementById("enquiry-link");
+            const closeEnquiryBox = document.getElementById("close-enquiry-box");
+            
+            enquiryLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                enquiryBox.style.display = "block";
+            });
         
+            closeEnquiryBox.addEventListener("click", function() {
+                enquiryBox.style.display = "none";
+            });
+        });
+// Function to handle drag start
+function handleDragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id);
+            e.target.style.opacity = '0.4'; // Reduced opacity while dragging
+        }
+
+        // Function to handle drag end
+        function handleDragEnd(e) {
+            e.target.style.opacity = ''; // Reset opacity after dragging
+        }
+
+        // Function to handle drop
+        function handleDrop(e) {
+            e.preventDefault();
+            document.getElementById('popup').style.display = "none";
+            var data = e.dataTransfer.getData('text/plain');
+            if (data) {
+                var card = document.getElementById(data);
+                card.parentNode.removeChild(card);
+            }
+        }
+
+        // Function to handle drag over
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        // Add event listeners to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('dragstart', handleDragStart);
+            card.addEventListener('dragend', handleDragEnd);
+        });
+
+        // Add event listeners to popup and document
+        document.getElementById('popup').addEventListener('dragover', handleDragOver);
+        document.addEventListener('dragover', handleDragOver);
+        document.getElementById('popup').addEventListener('drop', handleDrop);
+        document.addEventListener('drop', handleDrop);
+
+
+
+
+
+        // Add this script inside your <script> tag or in an external JavaScript file
+window.addEventListener('scroll', function() {
+    const parallax = document.querySelector('.parallax');
+    let scrollPosition = window.pageYOffset;
+    parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+});
+
     </script>
 </body>
 </html>

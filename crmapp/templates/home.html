@@ -5,52 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studious Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
+
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
         }
 
-        .navbar {
-            background-color: #fff; /* Background color for the navbar */
-            overflow: hidden; /* Clear floats */
-        }
+        
 
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .navbar li {
-            float: left;
-        }
-
-        .navbar li a {
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .navbar li a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .background-image {
-            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdlZGRpbmd8ZW58MHx8MHx8fDA%3D');
+         .background-image {
+            background-image: url('data:image/jpeg;base64,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');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             height: 500px;
             margin-left:10px;
             margin-right:10px;
-            /* position: fixed; */
-            /* z-index: -1; */
+            background-attachment: fixed; /* Add this line */
         }
         
         .content {
@@ -64,155 +39,201 @@
            
         }
         /* Styling for the footer */
-        footer {
-            background-color: #464324;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            /* position: absolute; */
-            bottom: 0;
-            width: 100%;
-        }
-      .btn{
-        width:140px;
+        .footer {
+    background-color: #091144;
+    color: #fff;
+    padding: 50px 0;
+    }
+
+    .footer h3 {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .newsletter-form button {
+        padding: 10px 20px;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .social-icons {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .social-icons li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .social-icons li a {
+        color: #070101;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s ease; /* Smooth transition for hover effect */
+    }
+    .social-icons li a:hover {
+        color: #ccc; /* Change color on hover */
+    }
+    .text-center {
         text-align: center;
-        margin-left:540px;
+    }
+
+      .btn{
+        width:180px;
+     
+       
       }
       .picture,
-.picturee {
-    display: inline-block; /* Display the pictures in a line */
-}
-
-.picture img,
-.picturee img {
-    width: 200px; /* Set width for the images */
-    height: 200px; /* Maintain aspect ratio */
-   
-    margin: 0 auto; /* Center the images horizontally */
-}
-.picturee {
-    margin-left: 600px; /* Add left margin to the second picture */
-}
-
-.picture-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
- /* Define CSS animation */
- @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(50px);
+        .picturee {
+            display: inline-block; /* Display the pictures in a line */
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .picture img,
+        .picturee img {
+            width: 200px; /* Set width for the images */
+            height: 200px; /* Maintain aspect ratio */
+        
+            margin: 0 auto; /* Center the images horizontally */
         }
+        .picturee {
+            margin-left: 600px; /* Add left margin to the second picture */
+        }
+
+        .picture-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        /* Define CSS animation */
+        @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Apply animation to content */
+            .content {
+                opacity: 0; /* Start with opacity 0 */
+                animation: fadeIn 1s ease-in-out forwards; /* Apply the animation */
+            }
+
+
+
+
+
+            .quote-container {
+            text-align: center; /* Center align the quote */
+            margin-top: 50px; /* Adjust margin as needed */
+        }
+
+            /* Define CSS animation for the quote */
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Apply animation to the quote */
+            .quote {
+                opacity: 0;
+                animation: slideIn 1s ease-in-out forwards; /* Apply the animation */
+            }
+
+
+
+
+        .picture-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #091144; /* Add a background color */
+            border-radius: 10px; /* Add border radius for rounded corners */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+    .picture {
+        text-align: center; /* Center-align the images */
     }
-
-    /* Apply animation to content */
-    .content {
-        opacity: 0; /* Start with opacity 0 */
-        animation: fadeIn 1s ease-in-out forwards; /* Apply the animation */
-    }
-
-
-
-
 
     .quote-container {
-    text-align: center; /* Center align the quote */
-    margin-top: 50px; /* Adjust margin as needed */
-}
-
-/* Define CSS animation for the quote */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
+        flex: 1; /* Make the quote container grow to fill available space */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 80px; /* Adjust margin for spacing */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .quote {
+        font-size: 24px; /* Increase font size */
+        margin: 20px 0; /* Adjust margin for spacing */
+        font-weight: bold; /* Add font weight for emphasis */
+        color: #33333334; /* Adjust text color */
     }
-}
 
-/* Apply animation to the quote */
-.quote {
-    opacity: 0;
-    animation: slideIn 1s ease-in-out forwards; /* Apply the animation */
-}
-
-
-
-
-.picture-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f5f5; /* Add a background color */
-    border-radius: 10px; /* Add border radius for rounded corners */
-    padding: 20px; /* Add padding for spacing */
-}
-
-.picture {
-    text-align: center; /* Center-align the images */
-}
-
-.quote-container {
-    flex: 1; /* Make the quote container grow to fill available space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0 80px; /* Adjust margin for spacing */
-}
-
-.quote {
-    font-size: 24px; /* Increase font size */
-    margin: 20px 0; /* Adjust margin for spacing */
-    font-weight: bold; /* Add font weight for emphasis */
-    color: #333; /* Adjust text color */
-}
-
-.picture img {
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin: 0 auto; /* Center-align the images horizontally */
-}
+    .picture img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: 0 auto; /* Center-align the images horizontally */
+    }
 
 
 
-.our-philosophy {
-    padding: 50px 0;
-    background-color: #f9f9f9; /* Set background color */
-}
+    .our-philosophy {
+        padding: 50px 0;
+        background-color: #f9f9f9; /* Set background color */
+    }
 
-.our-philosophy .picture-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .our-philosophy .picture-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.our-philosophy .picture {
-    margin-right: 20px;
-}
+    .our-philosophy .picture {
+        margin-right: 20px;
+    }
 
-.our-philosophy .quote-container {
-    flex: 1;
-    text-align: center;
-}
+    .our-philosophy .quote-container {
+        flex: 1;
+        text-align: center;
+    }
 
-.our-philosophy .quote {
-    font-size: 20px;
-    font-style: italic;
-    color: #555;
-}
+    .our-philosophy .quote {
+        font-size: 20px;
+        font-style: italic;
+        color: #555;
+    }
 
 
 
@@ -239,7 +260,7 @@
 
 .what-we-do {
     padding: 50px 0;
-    background-color: #f9f9f9;
+    background-color: #091144;
     text-align: center;
 }
 
@@ -277,28 +298,265 @@
 
 .service p {
     font-size: 18px;
-    color: #666;
+    color: #fff;
 }
 
+
+
+.navbar {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar li a {
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .background-image {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .content .btn {
+            font-size: 20px;
+            padding: 10px 30px;
+        }
+
+        .our-philosophy .quote-container {
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        .what-we-do {
+            padding: 50px 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .service {
+            flex: 1 1 300px;
+            margin: 20px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+        }
+
+        .service h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        footer {
+            background-color: #464324;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+
+        /* Additional styling */
+        .feature {
+            padding: 50px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .feature h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .feature .features-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .feature .feature-item {
+            flex: 1;
+            margin: 0 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature .feature-item p {
+            font-size: 18px;
+            color: #666;
+        }
+
+
+        /* Navbar styles */
+.navbar {
+    background-color: #091144; /* Dark background */
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999; /* Ensure navbar stays on top of other content */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center-align menu items */
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar li a:hover {
+    background-color: #555; /* Darker background on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+@media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .navbar-nav .nav-item {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .navbar-nav .nav-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .navbar-collapse {
+                background-color: #091144; /* Dark background */
+            }
+
+            .navbar-collapse.show {
+                background-color: transparent; /* Transparent background when collapsed */
+            }
+
+            .navbar-toggler {
+                border-color: #fff; /* White border for toggler button */
+            }
+
+            .navbar-toggler:hover {
+                background-color: #555; /* Darker background on hover */
+                border-radius: 5px; /* Rounded corners */
+            }
+        }
+/* Rest of your existing CSS styles */
+  /* Define CSS animation for fade-in */
+  @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Apply animation to features section */
+    .feature {
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+     /* Define CSS animation for hover effect */
+     .feature-item {
+        transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-5px);
+    }
     </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Studious</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="background-image"> 
     <div class="content">
-        <h1 style="text-align: center;">Welcome to Studious Events</h1>
-        <p class="welcome-message" style="text-align: center;">Creating unforgettable experiences for your special occasions</p>
+        <h1 style="text-align: center; font-weight: bold; color: #f5f823;" >Welcome to CRM Solutions</h1>
+        <p class="welcome-message" style="text-align: center; font-weight: bold; color: #f5f823;">Empowering businesses with effective customer relationship management</p>
         <button type="button" class="btn btn-dark">Explore now</button>
     </div>
 </div>
@@ -312,7 +570,7 @@
             <img src="https://plus.unsplash.com/premium_photo-1664790560098-1fac17eb495e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGV2ZW50JTIwbWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D" alt="Our Philosophy">
         </div>
         <div class="quote-container">
-            <p class="quote">"Our philosophy is to create unforgettable experiences that inspire and delight."</p>
+            <p class="quote">"Our philosophy is to build long-lasting relationships with customers through effective CRM strategies."</p>
         </div>
     </div>
 </div>
@@ -320,26 +578,104 @@
     <div class="container">
         <h2>What We Do</h2>
         <div class="services">
-            <div class="service">
-                <h3>Partial & Full Planning</h3>
-                <p>As a boutique event planning company, we offer both partial and full planning services. Whether you’re looking for guidance on design, connection to trusted local professionals, or day-of event coordination (partial), or prefer having the service of an event planner by your side every step of the way (full), our event design and planning process begins with an in-depth consultation where we get to know you, listen to your ideas, and understand your event vision.</p>
+            <div class="service" style="background-color: #091144;">
+                <h3 style="color: #ccc;">CRM Consulting</h3>
+                <p style="color: #f5f823;">Get expert guidance on implementing CRM systems tailored to your business needs.</p>
             </div>
-            <div class="service">
-                <h3>Customized Event Design</h3>
-                <p>We work with you one-on-one to brainstorm ideas and further develop your event concept. Immersing ourselves in your vision, we marry your individual style with our expertise in event design and planning and work meticulously to guide you through planning your event. From venue selection to mood boards and color schemes, we customize every detail to bring your vision to life.</p>
+            <div class="service" style="background-color: #091144;">
+                <h3 style="color: #ccc;">Data Management</h3>
+                <p style="color: #f5f823;">Optimize your customer data management processes for better CRM outcomes.</p>
             </div>
-            <div class="service">
-                <h3>Trusted Network</h3>
-                <p>We only work with a carefully selected network of trusted affiliates so that all of our events have meaning, make a statement, and leave a lasting impression and memory with you and your guests.</p>
+            <div class="service" style="background-color: #091144;">
+                <h3 style="color: #ccc;">Customer Engagement</h3>
+                <p style="color: #f5f823;">Enhance customer interactions and satisfaction through personalized engagement strategies.</p>
             </div>
         </div>
     </div>
 </div>
-
+<div class="feature">
+    <h2>Our CRM Features</h2>
+    <div class="features-list">
+        <div class="feature-item" style="background-color: #091144;">
+            <h3 style="color: #ccc;">360-Degree Customer View</h3>
+            <p style="color: #f5f823;">Gain insights into customer behavior and preferences with comprehensive customer profiles.</p>
+        </div>
+        <div class="feature-item" style="background-color: #091144;">
+            <h3 style="color: #ccc;">Automated Workflows</h3>
+            <p style="color: #f5f823;">Streamline business processes and improve efficiency with automated workflows.</p>
+        </div>
+        <div class="feature-item" style="background-color: #091144;">
+            <h3 style="color: #ccc;">Integrated Communication</h3>
+            <p style="color: #f5f823;">Centralize communication channels for seamless interaction with customers across multiple touchpoints.</p>
+        </div>
+        <div class="feature-item" style="background-color: #091144;">
+            <h3 style="color: #ccc;">Analytics and Reporting</h3>
+            <p style="color: #f5f823;">Track performance metrics and generate actionable insights for informed decision-making.</p>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h2 style="font-size: 24px; color: #091144; font-weight: bold; padding-left: 80px;">Features</h2>
+        <ul style="list-style-type: none; padding-left: 80px;">
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Contact Management</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Lead Tracking</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Account Management</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Opportunity Management</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Task Management</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Reporting & Analytics</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2 style="font-size: 24px; color: #091144; font-weight: bold;padding-left: 80px">Benefits</h2>
+        <ul style="list-style-type: none; padding-left: 80px;">
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Improve Customer Relationships</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Increase Sales Efficiency</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Enhance Team Collaboration</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Make Informed Decisions</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Drive Business Growth</li>
+            <li><i class="fas fa-check-circle" style="color: #091144;"></i> Scalable & Customizable</li>
+        </ul>
+    </div>
+</div>
+</div>
 <br><br>
-    <footer>
-        <p>&copy; 2024 Event Planning Co. All rights reserved.</p>
-    </footer>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to our newsletter for CRM updates and offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" name="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <h3>Contact Us</h3>
+                <p>123 Studious Avenue<br>Cityville, State</p>
+                <p>Email: info@studious.com<br>Phone: +1234567890</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="#" class="fab fa-facebook-f"></a></li>
+                    <li><a href="#" class="fab fa-twitter"></a></li>
+                    <li><a href="#" class="fab fa-instagram"></a></li>
+                    <li><a href="#" class="fab fa-linkedin-in"></a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">© 2024 CRM Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -380,5 +716,25 @@ window.addEventListener('scroll', function() {
     window.addEventListener('scroll', fadeInOnScroll);
     window.addEventListener('resize', fadeInOnScroll);
     window.addEventListener('DOMContentLoaded', fadeInOnScroll); // Trigger on page load
+
+
+
+    window.addEventListener('scroll', function() {
+            const scrollAmount = window.scrollY;
+            const background = document.querySelector('.background-image');
+            background.style.backgroundPositionY = -scrollAmount * 0.5 + 'px'; // Adjust the factor for parallax effect
+        });
+        window.addEventListener('scroll', function() {
+            const scrollAmount = window.scrollY;
+            const background = document.querySelector('.our-philosophy');
+            background.style.backgroundPositionY = -scrollAmount * 0.5 + 'px'; // Adjust the factor for parallax effect
+        });    
+
+    window.addEventListener('scroll', function() {
+            const scrollAmount = window.scrollY;
+            const background = document.querySelector('.what-we-do');
+            background.style.backgroundPositionY = -scrollAmount * 0.5 + 'px'; // Adjust the factor for parallax effect
+        });
+        
 </script>
 </html>
